@@ -53,3 +53,7 @@ variable "associate_public_ip_address" {
   default = true
 }
 
+variable "iam_instance_profile" {
+  type    = string
+  default = null
+}
