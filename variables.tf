@@ -35,7 +35,15 @@ variable "vpc_security_group_ids" {
 }
 
 variable "ssh_public_key" {
-  type = string
+  description = "If you want this module to use an ssh public key to create a new key pair in AWS specific the corresponding ssh public key here (in PEM format)."
+  type        = string
+  default     = null
+}
+
+variable "ssh_public_key_name" {
+  description = "Specific the name of an existing AWS key pair if you want to use an existing one."
+  type        = string
+  default     = null
 }
 
 variable "tags" {
