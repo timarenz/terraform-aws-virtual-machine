@@ -33,7 +33,7 @@ resource "aws_key_pair" "main" {
 
 
 resource "aws_instance" "main" {
-  ami                         = "${data.aws_ami.ubuntu.id}"
+  ami                         = local.ami_id
   instance_type               = var.instance_type
   subnet_id                   = "${var.subnet_id}"
   vpc_security_group_ids      = var.vpc_security_group_ids
