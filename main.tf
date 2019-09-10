@@ -28,14 +28,14 @@ locals {
 resource "aws_key_pair" "main" {
   count      = var.ssh_public_key == null ? 0 : 1
   key_name   = "${local.common_tags.environment}-${var.name}-key"
-  public_key = "${var.ssh_public_key}"
+  public_key = var.ssh_public_key
 }
 
 
 resource "aws_instance" "main" {
   ami                         = local.ami_id
   instance_type               = var.instance_type
-  subnet_id                   = "${var.subnet_id}"
+  subnet_id                   = var.subnet_id
   vpc_security_group_ids      = var.vpc_security_group_ids
   iam_instance_profile        = var.iam_instance_profile
   key_name                    = local.ssh_public_key
