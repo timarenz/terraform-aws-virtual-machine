@@ -65,3 +65,8 @@ variable "iam_instance_profile" {
   type    = string
   default = null
 }
+
+variable "disk_size" {
+  type = number
+  default = null
+}

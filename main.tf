@@ -43,6 +43,7 @@ resource "aws_instance" "main" {
   associate_public_ip_address = var.associate_public_ip_address
   root_block_device {
     volume_type = "gp2"
+    volume_size = var.disk_size
   }
 
   tags = merge(local.common_tags, var.tags == null ? {} : var.tags, { Name = var.name })
